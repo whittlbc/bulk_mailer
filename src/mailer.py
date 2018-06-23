@@ -19,13 +19,15 @@ class Mailer(object):
     # Parse recipient CSV data from provided csv.
     recipient_data = self._parse_recipient_data(recipient_csv)
 
+    print('Sending emails...')
+
     # For each recipient, create an email tailored to them, and send the email.
     for data in recipient_data:
       # Create Email class instance with template and recipient data.
       email = Email(sender_name=self.sender_name,
                     sender_email=self.sender_email,
                     email_column_name=to_slug(email_column_name),
-                    template=template
+                    template=template,
                     **data)
 
       # Send the email.
@@ -37,8 +39,11 @@ class Mailer(object):
     # Close SMTP server connection.
     self.server.close()
 
+    print('Done!')
+
   def _configure_server(self):
     # Create server instance
+    print('Connecting to {} on port {}...'.format(SMTP_HOST, SMTP_PORT))
     server = smtplib.SMTP(SMTP_HOST, SMTP_PORT)
 
     # Configure server and go into TLS mode.
@@ -47,6 +52,7 @@ class Mailer(object):
     server.ehlo()
 
     # Login to sender's account on SMTP server.
+    print('Logging into account {}...'.format(self.sender_email))
     server.login(self.sender_email, self.password)
 
     return server
@@ -54,6 +60,8 @@ class Mailer(object):
   def _parse_recipient_data(self, csv_filename):
     # Construct csv path from filename.
     csv_filepath = os.path.join(DATA_DIR, csv_filename)
+
+    print('Parsing CSV {}...'.format(csv_filepath))
 
     # Read in CSV data.
     recipient_data = csv_as_dict_list(path=csv_filepath,

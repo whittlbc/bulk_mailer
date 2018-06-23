@@ -14,16 +14,16 @@ SMTP_HOST = 'smtp.gmail.com'
 SMTP_PORT = 587
 
 # Configure Sender.
-SENDER_NAME = 'Ben Whittle'
-SENDER_EMAIL = 'benwhittle31@gmail.com'
-EMAIL_ACCOUNT_PW = 'Maxine20/'  # Ex: Your Gmail account password
+SENDER_NAME = '<Your Name>'
+SENDER_EMAIL = '<Your Email>'
+EMAIL_ACCOUNT_PW = '<Your Email Account Password>'
 
 # Configure CSV info.
-RECIPIENT_CSV_FILENAME = 'example.csv'
-EMAIL_COLUMN_NAME = 'Email Address'
+RECIPIENT_CSV_FILENAME = 'example.csv'  # CSV filename inside of data/ that holds recipient info
+EMAIL_COLUMN_NAME = 'Email Address'  # Name of the column inside the CSV that holds all recipient *emails*
 
 # Specify email template to use.
-EMAIL_TEMPLATE = 'example.html'
+EMAIL_TEMPLATE = 'example.html'  # HTML filename inside of templates/ that holds the email body contents
 
 # Specify email subject.
-EMAIL_SUBJECT = 'Example Email Subject'
+EMAIL_SUBJECT = '<Your Email Subject>'

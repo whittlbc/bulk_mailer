@@ -32,8 +32,8 @@ class Email(object):
     # Create message container - the correct MIME type is multipart/alternative.
     msg = MIMEMultipart('alternative')
 
-    # Specify sender and recipient emails
-    msg['From'] = self.sender_email
+    # Specify sender and recipient
+    msg['From'] = '{} <{}>'.format(self.sender_name, self.sender_email)
     msg['To'] = self.recipient_email
 
     # Specify email subject and body
