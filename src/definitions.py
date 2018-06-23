@@ -19,7 +19,7 @@ SENDER_EMAIL = '<Your Email>'
 EMAIL_ACCOUNT_PW = '<Your Email Account Password>'
 
 # Configure CSV info.
-RECIPIENT_CSV_FILENAME = 'example.csv'  # CSV filename inside of data/ that holds recipient info
+CSV = 'example.csv'  # CSV filename inside of data/ that holds recipient info
 EMAIL_COLUMN_NAME = 'Email Address'  # Name of the column inside the CSV that holds all recipient *emails*
 
 # Specify email template to use.

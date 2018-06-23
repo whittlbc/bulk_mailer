@@ -10,5 +10,5 @@ if __name__ == '__main__':
 
   # Send email using template to recipients inside csv.
   mailer.send_emails(template=EMAIL_TEMPLATE,
-                     recipient_csv=RECIPIENT_CSV_FILENAME,
+                     recipient_csv=CSV,
                      email_column_name=EMAIL_COLUMN_NAME)
