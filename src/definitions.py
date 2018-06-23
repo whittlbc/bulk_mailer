@@ -27,3 +27,6 @@ EMAIL_TEMPLATE = 'example.html'  # HTML filename inside of templates/ that holds
 
 # Specify email subject.
 EMAIL_SUBJECT = '<Your Email Subject>'
+
+# Interval of time (in seconds) to wait between each email for rate-limiting purposes.
+EMAIL_SENDING_INTERVAL = 0.5

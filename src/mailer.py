@@ -42,7 +42,7 @@ class Mailer(object):
     print('Done!')
 
   def _configure_server(self):
-    # Create server instance
+    # Create server instance.
     print('Connecting to {} on port {}...'.format(SMTP_HOST, SMTP_PORT))
     server = smtplib.SMTP(SMTP_HOST, SMTP_PORT)
 

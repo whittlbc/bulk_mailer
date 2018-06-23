@@ -19,7 +19,7 @@ class Email(object):
     self.j2_env = Environment(loader=FileSystemLoader(TEMPLATE_DIR),
                               trim_blocks=True)  # control whitespace
 
-    # Create email body from template and kwargs data
+    # Create email body from template and kwargs data.
     self.body = self.j2_env.get_template(template).render(**kwargs)
 
     # Create email-able message.
@@ -29,14 +29,14 @@ class Email(object):
     return self.msg.as_string()
 
   def _create_msg(self):
-    # Create message container - the correct MIME type is multipart/alternative.
+    # Create message container.
     msg = MIMEMultipart('alternative')
 
-    # Specify sender and recipient
+    # Specify sender and recipient.
     msg['From'] = '{} <{}>'.format(self.sender_name, self.sender_email)
     msg['To'] = self.recipient_email
 
-    # Specify email subject and body
+    # Specify email subject and body.
     msg['Subject'] = EMAIL_SUBJECT
     msg.attach(MIMEText(self.body, 'html'))
 
