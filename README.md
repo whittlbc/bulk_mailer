@@ -23,7 +23,7 @@ Python 3+ (might work on Python 2 but who the fuck knows)
 3. Create and activate your virtual environment:
 
     ```
-    $ virtualenv venv && source venv/bin/activate
+    $ virtualenv -p python3 venv && source venv/bin/activate
     ```
 
 4. Install project dependencies:
