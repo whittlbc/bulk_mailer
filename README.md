@@ -46,7 +46,7 @@ Check out [this example csv](data/example.csv) for reference.
 Check out [this example template](templates/example.html) for reference.
 
     **To use variables from your CSV file inside of your email template**, just use the snake-case version of the column name inside of double brackets.
-    For example, in order to dynamically reference an email recipient's first name, you would first check what the column name for first name is in your CSV. For the [example CSV](data/example.csv), it happens to be `First Name`.
+    For example, in order to dynamically reference an email recipient's first name, you would first check what the column name for first name is in your CSV. For the [example CSV](data/example.csv), this happens to be `First Name`.
     Therefore, for this example, you would reference that variable as `{{ first_name }}`. The same applies to all other columns.
 
 4. Go to [`src/definitions.py`](src/definitions.py) and modify the config information that will be used when 
