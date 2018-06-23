@@ -52,7 +52,7 @@ creating and sending emails. Variables you will probably want to change:
     $ python send_emails.py
     ```
 
-Woo!
+6. [Celebrate](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 # License
 
