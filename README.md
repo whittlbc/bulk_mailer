@@ -6,15 +6,27 @@ Send emails from your own Gmail account using Python.
 
 Python 3+ (might work on Python 2 but who the fuck knows)
 
-# Installation
+# Installation & Setup
 
 1. Clone this repo to get started:
 
     ```
-    $ git clone https://github.com/whittlbc/bulk_mailer.git
+    $ git clone https://github.com/whittlbc/bulk_mailer.git && cd bulk_mailer
     ```
 
-2. Install project dependencies:
+2. If you don't have `virtualenv` (run `$ which virtualenv` to check if you do), install it with pip:
+
+    ```
+    $ pip install virtualenv
+    ```
+
+3. Create and activate your virtual environment:
+
+    ```
+    $ virtualenv venv && source venv/bin/activate
+    ```
+
+4. Install project dependencies:
 
     ```
     $ make install
