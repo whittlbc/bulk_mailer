@@ -57,9 +57,10 @@ class Mailer(object):
     # Close SMTP server connection.
     self.server.close()
 
-    # Write failed emails to disk at the json logfile path.
-    with open(self.json_logfile_path, 'w+') as f:
-      f.write(json.dumps(self.failed_emails, indent=2, sort_keys=True))
+    if self.json_logfile_path:
+      # Write failed emails to disk at the json logfile path.
+      with open(self.json_logfile_path, 'w+') as f:
+        f.write(json.dumps(self.failed_emails, indent=2, sort_keys=True))
 
     print('Done!')
 
