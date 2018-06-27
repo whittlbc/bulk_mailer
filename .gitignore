@@ -4,5 +4,5 @@ venv/
 *.pem
 *.env
 failures.json
-templates/outbound.html
-data/underwriting.csv
+templates/boring/
+data/boring/
