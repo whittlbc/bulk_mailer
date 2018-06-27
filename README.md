@@ -48,6 +48,8 @@ Check out [this example template](templates/example.html) for reference.
     **To use variables from your CSV file inside of your email template**, just use the snake-case version of the column name inside of double brackets.
     For example, in order to dynamically reference an email recipient's first name, you would first check what the column name for first name is in your CSV. For the [example CSV](data/example.csv), this happens to be <br/>`First Name`.
     Therefore, for this example, you would reference that variable as `{{ first_name }}`. The same applies to all other columns.
+    
+    These templates actually just use [jinja2](http://jinja.pocoo.org/docs/2.10/) for parsing, so anything you could do in `jinja2`, you can do in your templates here.
 
 4. Go to [`src/definitions.py`](src/definitions.py) and modify the config information that will be used when 
 creating and sending emails. Variables you will probably want to change:
@@ -60,6 +62,10 @@ creating and sending emails. Variables you will probably want to change:
     * `EMAIL_COLUMN_NAME`
     * `EMAIL_TEMPLATE`
     * `EMAIL_SUBJECT`
+    * `EMAIL_SENDING_INTERVAL`
+    * `JSON_LOGFILE_PATH`
+    * `PROMPT_BETWEEN_BATCHES`
+    * `BATCH_SIZE`
   
     Descriptions for each of these variables can be found as comments inside of [`src/definitions.py`](src/definitions.py). 
 
