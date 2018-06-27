@@ -10,7 +10,7 @@ DATA_DIR = BASE_DIR + '/data'
 TEMPLATE_DIR = BASE_DIR + '/templates'
 
 # Configure SMTP server
-SMTP_HOST = 'smtp.gmail.com'
+SMTP_HOST = 'smtp.gmail.com'  # Ex: smtp.gmail.com, smtp.outlook.com, etc.
 SMTP_PORT = 587
 
 # Configure Sender.
