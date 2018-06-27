@@ -16,6 +16,7 @@ class Mailer(object):
     self.json_logfile_path = json_logfile_path
     self.server = self._configure_server()
     self.failed_emails = {}
+    self.emails_out = {}
 
   def send_emails(self, template=None, recipient_csv=None, email_column_name=None,
                   interval=1, prompt_between_batches=False, batch_size=100):
@@ -26,8 +27,9 @@ class Mailer(object):
     # Split recipient data into batches.
     recipient_batches = [recipient_data[i:i + batch_size] for i in range(0, len(recipient_data), batch_size)]
 
-    # Reset failed emails map.
+    # Reset emails maps.
     self.failed_emails = {}
+    self.emails_out = {}
 
     # Send emails in each batch.
     for i, batch in enumerate(recipient_batches):
@@ -58,7 +60,7 @@ class Mailer(object):
     self.server.close()
 
     if self.json_logfile_path:
-      # Write failed emails to disk at the json logfile path.
+      # Write failed emails to disk at the json logfile path
       with open(self.json_logfile_path, 'w+') as f:
         f.write(json.dumps(self.failed_emails, indent=2, sort_keys=True))
 
@@ -106,8 +108,15 @@ class Mailer(object):
                     template=template,
                     **recipient)
 
+      # Ensure we don't send any duplicates.
+      if email.recipient_email in self.emails_out:
+        continue
+
       # Send the email.
       self._send_email(email)
+
+      # Register email as sent.
+      self.emails_out[email.recipient_email] = True
 
       # Sleep for the specified interval.
       sleep(interval)

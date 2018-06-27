@@ -13,7 +13,7 @@ class Email(object):
     self.sender_email = sender_email
 
     # Recipient info
-    self.recipient_email = kwargs[email_column_name]
+    self.recipient_email = kwargs[email_column_name].lower()
 
     # Create jinja2 environment for template rendering.
     self.j2_env = Environment(loader=FileSystemLoader(TEMPLATE_DIR),
