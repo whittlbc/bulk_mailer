@@ -35,8 +35,11 @@ class Mailer(object):
     for i, batch in enumerate(recipient_batches):
       batch_num = i + 1
 
-      self._process_batch(batch_num=batch_num, recipients=batch, template=template,
-                          email_column_name=email_column_name, interval=interval)
+      try:
+        self._process_batch(batch_num=batch_num, recipients=batch, template=template,
+                            email_column_name=email_column_name, interval=interval)
+      except KeyboardInterrupt:
+        return
 
       if not prompt_between_batches or batch_num == len(recipient_batches):
         continue
@@ -60,7 +63,7 @@ class Mailer(object):
     self.server.close()
 
     if self.json_logfile_path:
-      # Write failed emails to disk at the json logfile path
+      # Write failed emails to disk at the json logfile path.
       with open(self.json_logfile_path, 'w+') as f:
         f.write(json.dumps(self.failed_emails, indent=2, sort_keys=True))
 
