@@ -30,3 +30,10 @@ EMAIL_SUBJECT = '<Your Email Subject>'
 
 # Interval of time (in seconds) to wait between each email for rate-limiting purposes.
 EMAIL_SENDING_INTERVAL = 0.5
+
+# JSON logfile path for writing failed email attempts to disk
+JSON_LOGFILE_PATH = BASE_DIR + '/failures.json'
+
+# Batch configs
+PROMPT_BETWEEN_BATCHES = True  # Prompt user for confirmation to continue after each batch?
+BATCH_SIZE = 100  # Number of emails in each batch
