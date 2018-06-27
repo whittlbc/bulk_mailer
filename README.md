@@ -1,6 +1,6 @@
 # Bulk Mailer
 
-Send emails from your own Gmail account using Python.
+Send automated emails from your own email account using Python. Currently tested and works with Gmail and Outlook.
 
 # Requirements
 
@@ -36,7 +36,7 @@ Python 3+ (might work on Python 2 but who the fuck knows)
 
 Follow the steps below to get up and running sending emails.
 
-1. Navigate to https://myaccount.google.com/lesssecureapps and make sure that **Allow less secure apps** is toggled to **ON**.
+1. (If using Gmail) Navigate to https://myaccount.google.com/lesssecureapps and make sure that **Allow less secure apps** is toggled to **ON**.
 Emails will fail to send from your Gmail account unless this is turned on.
 
 2. Create (or place) a CSV inside the `data/` directory that holds all of your email recipients' information. 
@@ -46,12 +46,13 @@ Check out [this example csv](data/example.csv) for reference.
 Check out [this example template](templates/example.html) for reference.
 
     **To use variables from your CSV file inside of your email template**, just use the snake-case version of the column name inside of double brackets.
-    For example, in order to dynamically reference an email recipient's first name, you would first check what the column name for first name is in your CSV. For the [example CSV](data/example.csv), it happens to be `First Name`.
+    For example, in order to dynamically reference an email recipient's first name, you would first check what the column name for first name is in your CSV. For the [example CSV](data/example.csv), it happens to be <br/>`First Name`.
     Therefore, for this example, you would reference that variable as `{{ first_name }}`. The same applies to all other columns.
 
 4. Go to [`src/definitions.py`](src/definitions.py) and modify the config information that will be used when 
 creating and sending emails. Variables you will probably want to change:
 
+    * `SMTP_HOST`
     * `SENDER_NAME`
     * `SENDER_EMAIL`
     * `EMAIL_ACCOUNT_PW`
